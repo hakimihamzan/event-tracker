@@ -24,7 +24,7 @@ def generateQr(request):
     global unique
     unique = result_str_end
     qrpic = qrcode.make("OTP : "+otp)
-    qrpic.save(r"assets/qrcode.jpg")
+    qrpic.save(r"static/persona/qrcode.jpg")
     participant = Participant(name="-", unique=unique, student_id=0, class_attended='-', lecturer='-', programme_code='-', faculty='-', campus='-', location='-')
     participant.save()
     return render(request, "persona/generate.html")
