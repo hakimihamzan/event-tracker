@@ -17,7 +17,7 @@ unique = 12
 otp = "0"
 
 class ParticipantViewSet(viewsets.ModelViewSet):
-    queryset = Participant.objects.all().order_by('unique')
+    queryset = Participant.objects.all().order_by('id')
     serializer_class = ParticipantSerializer
 
 def generateQr(request):
@@ -31,14 +31,13 @@ def generateQr(request):
     unique = result_str_end
     qrpic = qrcode.make("OTP : "+otp)
     qrpic.save(os.path.join(BASE_DIR, "static/qrcode.jpg"))
-    participant = Participant(name="-", unique=unique, student_id=0, class_attended='-', lecturer='-', programme_code='-', faculty='-', campus='-', location='-')
+    participant = Participant(name="-", unique=unique, time='0',student_id=0, class_attended='-', lecturer='-', programme_code='-', faculty='-', campus='-', location='-')
     participant.save()
     return render(request, "persona/generate.html")
 
 def generating(request):
     participants = Participant.objects.filter(unique=unique).exclude(student_id=0)
-    number = 0
-    context = {'participants': participants, 'number': number}
+    context = {'participants': participants}
     return render(request, "persona/generating.html", context)
 
 

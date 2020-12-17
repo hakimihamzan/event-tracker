@@ -61,6 +61,7 @@
           <!-- <th scope="col">Programme Code</th> -->
           <!-- <th scope="col">Faculty</th>
         <th scope="col">Campus</th> -->
+        <th scope="col">Time</th>
           <th scope="col">Location</th>
           <!-- <th scope="col">Unique Number</th> -->
         </tr>
@@ -79,6 +80,7 @@
         <!-- <td>{{x.programme_code}}</td> -->
         <!-- <td>{{x.faculty}}</td>
       <td>{{x.campus}}</td> -->
+      <td>{{x.time}}</td>
         <td>{{x.location}}</td>
         <!-- <td>{{x.unique}}</td> -->
       </tr>
@@ -105,6 +107,12 @@
     function showPosition(position) {
       x.innerHTML = "Latitude: " + position.coords.latitude.toFixed(6) +
         "<br>Longitude: " + position.coords.longitude.toFixed(6);
+    }
+  </script>
+
+  <script>
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
     }
   </script>
 
