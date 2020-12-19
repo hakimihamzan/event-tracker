@@ -10,7 +10,6 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 
 unique = 12
@@ -30,7 +29,7 @@ def generateQr(request):
     global unique
     unique = result_str_end
     qrpic = qrcode.make("OTP : "+otp)
-    qrpic.save(os.path.join(BASE_DIR, "static/qrcode.jpg"))
+    qrpic.save(os.path.join(BASE_DIR, "staticfiles/qrcode.jpg"))
     participant = Participant(name="-", unique=unique, time='0',student_id=0, class_attended='-', lecturer='-', programme_code='-', faculty='-', campus='-', location='-')
     participant.save()
     return render(request, "persona/generate.html")

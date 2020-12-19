@@ -12,7 +12,6 @@ class Participant(models.Model):
     class_attended = models.CharField(max_length=100, blank=True)
     lecturer = models.CharField(max_length=100, blank=True)
     time = models.CharField(max_length=100, blank=True)
-    
 
 
     def __str__(self):

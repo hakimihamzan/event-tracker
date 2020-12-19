@@ -26,7 +26,7 @@ SECRET_KEY = '#v!2by7l9@=gptm4!-n&e@1*$c#j-vp@ta@i3^jz$94$5teqxq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['eventrackers.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['eventrackers.pythonanywhere.com']
 
 
 # Application definition
