@@ -8,8 +8,9 @@ router.register(r'participants', views.ParticipantViewSet)
 
 app_name='persona'
 urlpatterns = [
-    path('', views.generateQr, name="generateQr"),
-    path('check-in/', views.generating, name="generating"),
+    #path('', views.generateQr, name="generateQr"),
+    path('', views.generate.as_view(), name='generateQr'),
+    path('check-in/', views.generating.as_view(), name="generating"),
     path('--api/', include(router.urls)),
     path('--api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 
