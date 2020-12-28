@@ -11,7 +11,7 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+#// hjhkh
 
 unique = 12
 otp = "0"
@@ -41,7 +41,7 @@ class generate(View) :
 
     def post(self, request):
         # if there any flash messages
-        
+
         #guess = request.POST.get('guess')
         #msg = checkguess(guess)
         #request.session['msg'] = msg
