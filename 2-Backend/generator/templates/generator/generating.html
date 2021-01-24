@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>index to go next</title>
+  </head>
+  <body>
+    <button onclick="location.href='{% url 'generator:out' %}'">Create QR Code</button>
+
+    <br>
+    <br>
+    <a href="{% url 'generator:generatedDone' %}">See QR</a>
+
+  </body>
+</html>

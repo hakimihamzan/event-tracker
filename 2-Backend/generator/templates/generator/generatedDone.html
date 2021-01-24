@@ -1,0 +1,15 @@
+{% if participant_list %}
+    <ul>
+    {% for person in participant_list %}
+        <li>{{ person.name }}</li>
+        <li>{{ person.student_id }}</li>
+        <li>{{ person.programme_code }}</li>
+        <li>{{ person.unique }}</li>
+
+        <br>
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No particpant available.</p>
+{% endif %}
