@@ -44,7 +44,7 @@ def output():
     unique = result_str_end
     qrpic = qrcode.make("OTP : " + otp)
     # qrpic.save(os.path.join(BASE_DIR, "generator/qrcode.png"))
-    qrpic.save(os.path.join(os.path.dirname(BASE_DIR), 'eventrackers/mediafiles_cdn/qrcode.png'))
+    qrpic.save(os.path.join(os.path.dirname(BASE_DIR), 'eventrackers/mediafiles_cdn/qrpic.png'))
 
     participant = Participant(name="-", unique=unique, time='0', student_id=0, class_attended='-', lecturer='-',
                               programme_code='-', faculty='-', campus='-', location='-')

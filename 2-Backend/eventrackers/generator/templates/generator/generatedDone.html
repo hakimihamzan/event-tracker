@@ -31,7 +31,7 @@
         <table border="1">
             <tr>
                 <th>
-                    <img id=graph src="{{ MEDIA_URL }}qrcode.png">
+                    <img id=graph src="{{ MEDIA_URL }}qrpic.png">
                 </th>
             </tr>
         </table>
@@ -62,7 +62,7 @@
             $("#div_refresh").load("{% url 'generator:get_more_tables' %}");
             setInterval(function () {
                 $("#div_refresh").load("{% url 'generator:get_more_tables' %}");
-            }, 4000);
+            }, 10000);
         });
     </script>
 
@@ -86,7 +86,7 @@
     <script language="javascript" type="text/javascript">
         var d = new Date();
         document.getElementById("graph").src =
-            "{{ MEDIA_URL }}qrcode.png?ver=" +
+            "{{ MEDIA_URL }}qrpic.png?ver=" +
             d.getTime();
     </script>
 
