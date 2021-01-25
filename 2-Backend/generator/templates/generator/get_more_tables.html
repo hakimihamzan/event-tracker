@@ -1,0 +1,60 @@
+{% if participant_list %}
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Student ID</th>
+            <th scope="col">Class</th>
+            <th scope="col">Lecturer</th>
+            <!-- <th scope="col">Programme Code</th> -->
+            <!-- <th scope="col">Faculty</th>
+          <th scope="col">Campus</th> -->
+            <th scope="col">Time</th>
+            <th scope="col">Location</th>
+            <!-- <th scope="col">Unique Number</th> -->
+        </tr>
+        </thead>
+
+        {% for person in participant_list %}
+
+            <tr>
+
+                <td>{{ forloop.counter }}</td>
+
+                <td>{{ person.name }}</td>
+                <td>{{ person.student_id }}</td>
+                <td>{{ person.class_attended }}</td>
+                <td>{{ person.lecturer }}</td>
+                <!-- <td>{{person.programme_code}}</td> -->
+                <!-- <td>{{person.faculty}}</td>
+      <td>{{person.campus}}</td> -->
+                <td>{{ person.time }}</td>
+                <td>{{ person.location }}</td>
+                <!-- <td>{{person.unique}}</td> -->
+            </tr>
+        {% endfor %}
+
+    </table>
+{% else %}
+    <p align="center">0 participants have checked in.</p>
+{% endif %}
+
+
+
+{#<table>#}
+{#    <tr>#}
+{#        <th>Name</th>#}
+{#        <th>Student ID</th>#}
+{#        <th>Programme Code</th>#}
+{#        <th>Unique ID</th>#}
+{#    </tr>#}
+{#    {% for person in participant_list %}#}
+{#        <tr>#}
+{#            <td>{{ person.name }}</td>#}
+{#            <td>{{ person.student_id }}</td>#}
+{#            <td>{{ person.programme_code }}</td>#}
+{#            <td>{{ person.unique }}</td>#}
+{#        </tr>#}
+{#    {% endfor %}#}
+{#</table>#}

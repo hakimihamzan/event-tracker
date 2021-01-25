@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Participant(models.Model):
     name = models.CharField(max_length=60)
@@ -12,7 +13,6 @@ class Participant(models.Model):
     class_attended = models.CharField(max_length=100, blank=True)
     lecturer = models.CharField(max_length=100, blank=True)
     time = models.CharField(max_length=100, blank=True)
-
 
     def __str__(self):
         return self.name

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Page</title>
+</head>
+<body>
+<p>{{ MEDIA_URL }}cat.jpg</p>
+<img src="{{ MEDIA_URL }}cat.jpg">
+<br>
+<p>{{ cat.photo.url }}</p>
+
+<img src="{{ cat.photo.url }}">
+
+</body>
+</html>

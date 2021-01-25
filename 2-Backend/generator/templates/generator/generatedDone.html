@@ -1,15 +1,126 @@
-{% if participant_list %}
-    <ul>
-    {% for person in participant_list %}
-        <li>{{ person.name }}</li>
-        <li>{{ person.student_id }}</li>
-        <li>{{ person.programme_code }}</li>
-        <li>{{ person.unique }}</li>
+{% load static %}
 
-        <br>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No particpant available.</p>
-{% endif %}
+    <!-- Bootstrap CSS -->
+{#    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"#}
+{#          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">#}
+{#------------- collect static first then you can refer to app static files ------------#}
+    <link rel="stylesheet" type="text/css" href="{% static 'generator/css/bootstrap.min.css' %}">
+    <link rel="shortcut icon" href="{% static 'main/images/favicon.ico' %}" type="image/x-icon">
+
+    <title> _Scan this!</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'generator:generating' %}">EvenTracker</a>
+</nav>
+<br>
+{##}
+{#<img src="{% static 'main/images/cat.jpg' %}">#}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-center">
+        <table border="1">
+            <tr>
+                <th>
+                    <img id=graph src="{{ MEDIA_URL }}qrcode.png">
+                </th>
+            </tr>
+        </table>
+    </div>
+    <br>
+
+    <div class="center" align="center" style="margin:auto;">
+        <p>
+            <button class="btn btn-light btn-primary btn-lg btn-outline-secondary" onclick="getLocation()">Get
+                Location
+            </button>
+        </p>
+        <p id="demo"></p>
+    </div>
+
+    <div id="div_refresh"></div>
+
+</div>
+
+
+{#--------------------- js---------------------------- #}
+
+{#    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>#}
+    <script src="{% static 'generator/js/jquery-3.4.1.min.js' %}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#div_refresh").load("{% url 'generator:get_more_tables' %}");
+            setInterval(function () {
+                $("#div_refresh").load("{% url 'generator:get_more_tables' %}");
+            }, 4000);
+        });
+    </script>
+
+    <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude.toFixed(6) +
+                "<br>Longitude: " + position.coords.longitude.toFixed(6);
+        }
+    </script>
+
+    <script language="javascript" type="text/javascript">
+        var d = new Date();
+        document.getElementById("graph").src =
+            "{{ MEDIA_URL }}qrcode.png?ver=" +
+            d.getTime();
+    </script>
+
+</body>
+</html>
+
+
+{#{% if participant_list %}#}
+{#    <ul>#}
+{#    {% for person in participant_list %}#}
+{#        <li>{{ person.name }}</li>#}
+{#        <li>{{ person.student_id }}</li>#}
+{#        <li>{{ person.programme_code }}</li>#}
+{#        <li>{{ person.unique }}</li>#}
+{#        <br>#}
+{#    {% endfor %}#}
+{#    </ul>#}
+{#{% else %}#}
+{#    <p>No participant available.</p>#}
+{#{% endif %}#}
+
+
+{##}
+{#<script>#}
+{#    var append_increment = 0;#}
+{#    setInterval(function () {#}
+{#        $.ajax({#}
+{#            type: "GET",#}
+{#            url: {% url 'generator:get_more_tables' %},  // URL to your view that serves new info#}
+{#            data: {'append_increment': append_increment}#}
+{#        })#}
+{#            .done(function (response) {#}
+{#                $('#_appendHere').append(response);#}
+{#                append_increment += 10;#}
+{#            });#}
+{#    }, 1000)#}
+{#</script>#}
