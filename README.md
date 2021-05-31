@@ -1,6 +1,6 @@
 # Event-Trackers
 Track your attendance in any event.
-https://eventrackers.pythonanywhere.com
+- https://eventrackers.pythonanywhere.com
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -18,8 +18,7 @@ https://eventrackers.pythonanywhere.com
 - Front-end framework (Bootstrap, jQuery, AJAX)
 
 ## Project Status
-Project is: _in progress_
-Backend part of the website is mostly done. For now, I only set it up to register a student into a class when scanned not some other categories. It already provide functions to generate QR code and logging people in. I planned to use Android as the client that consume the Rest API. Android skeleton project of student version has completed but it is completely hideous. Need some more work.
+Project is: _in progress_. Backend part of the website is mostly done. For now, I only set it up to register a student into a class when scanned not some other categories. It already provide functions to generate QR code and logging people in. I planned to use Android as the client that consume the Rest API. Android skeleton project of student version has completed but it is completely hideous. Need some more work.
 
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
