@@ -1,5 +1,5 @@
 # Event-Trackers
-Track your attendance in any event. [Try it!](https://eventrackers.pythonanywhere.com)
+Track your attendance in any event. [Look around!](https://eventrackers.pythonanywhere.com) Client-Side app incomplete
 
 ## Table of Contents
 * [General Info](#general-information)
